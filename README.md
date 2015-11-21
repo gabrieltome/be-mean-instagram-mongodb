@@ -14,7 +14,14 @@ O MongoDb é um banco e dados NoSQL open-source e orientado a documentos JSON.
 
 [Aulas e Slides](https://github.com/Webschool-io/be-mean-instagram/wiki/M%C3%B3dulo-_--MongoDB)
 
+[Chat](http://be-mean.rocket.chat/channel/mongodb)
+
+[Exercícios - Wiki](https://github.com/Webschool-io/be-mean-instagram/wiki/Exerc%C3%ADcios)
+
+[Artigos](https://github.com/Webschool-io/be-mean-instagram-artigos)
+
 ###Aula 01
+
 
 
 
@@ -38,3 +45,12 @@ mongoimport --db nome_do_database --collection nome_da_colecao --drop --file min
 
 
 ##Exercícios
+
+[Wiki](https://github.com/Webschool-io/be-mean-instagram/wiki/Exerc%C3%ADcios)
+
+* [Exercício 01](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-01-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-01-resolved-gabrieltome.md) 
+* Exercício 02
+* Exercício 03
+* Exercício 04
+
+
