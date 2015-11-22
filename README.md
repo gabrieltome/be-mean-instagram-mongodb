@@ -36,6 +36,13 @@ O **MongoDb** é um banco e dados NoSQL open-source e orientado a documentos JSO
 
 ###Aula 01
 
+```
+mongo
+```
+
+```
+mongod
+```
 
 **Export**
 
@@ -48,6 +55,23 @@ mongoexport --db nome_do_database --collection nome_da_colecao --out minha_colec
 ```
 mongoimport --db nome_do_database --collection nome_da_colecao --drop --file minha_colecao.json
 ```
+
+**Listar banco de dados**
+```
+show dbs
+```
+
+**Seleciona banco**
+
+```
+use db
+```
+
+
+```
+be-mean> db.restaurantes.find({}).count()
+```
+
 
 ###Aula 02
 ###Aula 03
