@@ -36,13 +36,27 @@ O **MongoDb** é um banco e dados NoSQL open-source e orientado a documentos JSO
 
 ###Aula 01
 
+
+**Starta o shell**
+
 ```
 mongo
 ```
 
+Em outro terminal
+
+
 ```
 mongod
 ```
+
+
+Levantar já usando a database.
+
+```
+mongo database
+```
+
 
 **Export**
 
@@ -56,16 +70,16 @@ mongoexport --db nome_do_database --collection nome_da_colecao --out minha_colec
 mongoimport --db nome_do_database --collection nome_da_colecao --drop --file minha_colecao.json
 ```
 
-**Listar banco de dados**
-```
-show dbs
-```
 
 **Seleciona banco**
 
+Especifica qual banco de dados a ser utilizado.
+Se não existir, ele cria o banco.
+
 ```
-use db
+use datababe
 ```
+
 
 
 ```
@@ -74,6 +88,31 @@ be-mean> db.restaurantes.find({}).count()
 
 
 ###Aula 02
+
+
+A variável *db* sempre aponta para a database.
+
+
+**Listar as databases**
+
+```
+show dbs
+```
+
+**1ª Inserção**
+
+O Mongo pré-aloca espaço.
+
+
+```
+2015-11-23T22:39:20.509-0200 [initandlisten]                 db.teste.insert({nome:"Gabriel", idade:"26"})
+Inserted 1 record(s) in 1663ms
+WriteResult({
+  "nInserted": 1
+})
+```
+
+
 ###Aula 03
 ###Aula 04
 
