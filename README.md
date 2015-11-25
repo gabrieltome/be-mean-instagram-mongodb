@@ -38,7 +38,7 @@ O **MongoDb** é um banco e dados NoSQL open-source e orientado a documentos JSO
 [Wiki](https://github.com/Webschool-io/be-mean-instagram/wiki/Exerc%C3%ADcios)
 
 * [Exercício 01](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-01-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-01-resolved-gabrieltome.md) 
-* [Exercício 02](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-02-resolved.md#estrutura) - Resolved
+* [Exercício 02](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-02-resolved.md#estrutura) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb-excercises/blob/master/class-02/class-02-resolved-gabrieltome.md)
 * Exercício 03
 * Exercício 04
 
@@ -49,8 +49,9 @@ O **MongoDb** é um banco e dados NoSQL open-source e orientado a documentos JSO
 
 ###Aula 01
 
+Nessa primeira aula foi apresentado o **MongoDB**.
 
-**Starta o shell**
+Starta o shell
 
 ```
 mongo
@@ -87,10 +88,7 @@ mongoimport --db nome_do_database --collection nome_da_colecao --drop --file min
 
 ###Aula 02
 
-
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/PaNVk0V2UNI/0.jpg)](http://www.youtube.com/watch?v=PaNVk0V2UNI)
-
-
+Nessa aula foi mostrado alguns exemplos de CRUD.
 
 A variável *db* sempre aponta para a database.
 
