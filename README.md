@@ -2,6 +2,8 @@
 
 ![Be Mean Icon](https://camo.githubusercontent.com/1a286c9f755fd3565a692c42b38c34495e44ac68/687474703a2f2f7765627363686f6f6c2e696f2f62656d65616e2f696d616765732f6c6f676f2e706e67)
 
+***
+
 ###Sobre
 [Link Oficial](http://dagora.net/be-mean/)
 
@@ -9,7 +11,7 @@ Workshop de [**MEAN**](http://mean.io/) ([MongoDb](https://www.mongodb.org/), [E
 
 
 
-#MongoDb![Mongo Icon](https://camo.githubusercontent.com/b543a486d75c07ba1660c64851a2fc7b94113774/687474703a2f2f7777772e6178616e747765622e636f6d2f696d616765732f69636f6e732f6d6f6e676f2e706e67)
+##MongoDb![Mongo Icon](https://camo.githubusercontent.com/b543a486d75c07ba1660c64851a2fc7b94113774/687474703a2f2f7777772e6178616e747765622e636f6d2f696d616765732f69636f6e732f6d6f6e676f2e706e67)
 
 
 
@@ -29,7 +31,18 @@ O **MongoDb** é um banco e dados NoSQL open-source e orientado a documentos JSO
 
 [Artigos](https://github.com/Webschool-io/be-mean-instagram-artigos)
 
+[mongo-hacker](https://github.com/TylerBrock/mongo-hacker)
 
+#####Exercícios
+
+[Wiki](https://github.com/Webschool-io/be-mean-instagram/wiki/Exerc%C3%ADcios)
+
+* [Exercício 01](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-01-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-01-resolved-gabrieltome.md) 
+* [Exercício 02](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-02-resolved.md#estrutura) - Resolved
+* Exercício 03
+* Exercício 04
+
+***
 
 ##Workshop![Mongo Icon](https://camo.githubusercontent.com/b543a486d75c07ba1660c64851a2fc7b94113774/687474703a2f2f7777772e6178616e747765622e636f6d2f696d616765732f69636f6e732f6d6f6e676f2e706e67)
 
@@ -70,24 +83,13 @@ mongoexport --db nome_do_database --collection nome_da_colecao --out minha_colec
 mongoimport --db nome_do_database --collection nome_da_colecao --drop --file minha_colecao.json
 ```
 
-
-**Seleciona banco**
-
-Especifica qual banco de dados a ser utilizado.
-Se não existir, ele cria o banco.
-
-```
-use datababe
-```
-
-
-
-```
-be-mean> db.restaurantes.find({}).count()
-```
-
+***
 
 ###Aula 02
+
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/PaNVk0V2UNI/0.jpg)](http://www.youtube.com/watch?v=PaNVk0V2UNI)
+
 
 
 A variável *db* sempre aponta para a database.
@@ -99,33 +101,85 @@ A variável *db* sempre aponta para a database.
 show dbs
 ```
 
-**1ª Inserção**
+**Seleciona banco**
 
-O Mongo pré-aloca espaço.
-
+Especifica qual banco de dados a ser utilizado.
+Se não existir, ele cria o banco.
 
 ```
-2015-11-23T22:39:20.509-0200 [initandlisten]                 db.teste.insert({nome:"Gabriel", idade:"26"})
+use datababe
+```
+
+**Lista as coleções do db**
+
+```
+show collections
+```
+
+
+####CRUD
+
+**Insert**
+
+```
+db.collection.insert()
+```
+
+A primeira inserção é mais demorada, pois o **MongoDb** pré-aloca espaço na memória.
+
+
+```                 
+db.teste.insert({nome:"Gabriel", idade:"26"})
+
 Inserted 1 record(s) in 1663ms
 WriteResult({
   "nInserted": 1
 })
 ```
 
+**Save**
+
+Insere salva.
+
+- Cria o objeto a ser salvo
+  	
+  	```
+  	var obj = {"name":'Name'}
+  	```
+- Salva passando o objeto como parâmetro
+	
+	```
+	db.collection.save(obj)
+	```
+
+**FIND**
+
+Retorna o ***CURSOR***
+
+```
+db.collection.find()
+```
+
+Retorna o ***OBJETO***
+
+Salva a busca
+
+```
+var query = {name:'Name'}
+```
+ e depois
+
+```
+var p = db.collection.findOne(query)
+```
+
+
+
 
 ###Aula 03
 ###Aula 04
 
 
-##Exercícios![Mongo Icon](https://camo.githubusercontent.com/b543a486d75c07ba1660c64851a2fc7b94113774/687474703a2f2f7777772e6178616e747765622e636f6d2f696d616765732f69636f6e732f6d6f6e676f2e706e67)
-
-
-[Wiki](https://github.com/Webschool-io/be-mean-instagram/wiki/Exerc%C3%ADcios)
-
-* [Exercício 01](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-01-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-01-resolved-gabrieltome.md) 
-* Exercício 02
-* Exercício 03
-* Exercício 04
 
 
 
