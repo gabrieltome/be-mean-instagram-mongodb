@@ -13,23 +13,22 @@ Workshop de [**MEAN**](http://mean.io/) ([MongoDb](https://www.mongodb.org/), [E
 
 ##MongoDb![Mongo Icon](https://camo.githubusercontent.com/b543a486d75c07ba1660c64851a2fc7b94113774/687474703a2f2f7777772e6178616e747765622e636f6d2f696d616765732f69636f6e732f6d6f6e676f2e706e67)
 
-
-
-O **MongoDb** é um banco e dados NoSQL open-source e orientado a documentos JSON.
+[traduzir] 
+O **MongoDb** é um banco de dados NoSQL open-source e orientado a documentos JSON.
 
 
 ##Links![Mongo Icon](https://camo.githubusercontent.com/b543a486d75c07ba1660c64851a2fc7b94113774/687474703a2f2f7777772e6178616e747765622e636f6d2f696d616765732f69636f6e732f6d6f6e676f2e706e67)
 
 
-[Site Oficial](https://www.mongodb.org/)
+[Official Website](https://www.mongodb.org/)
 
-[Be Mean - Repo Oficial](https://github.com/Webschool-io/be-mean-instagram)
+[Be Mean - Official Repository](https://github.com/Webschool-io/be-mean-instagram)
 
-[Aulas e Slides](https://github.com/Webschool-io/be-mean-instagram/wiki/M%C3%B3dulo-_--MongoDB)
+[Classes Slides](https://github.com/Webschool-io/be-mean-instagram/wiki/M%C3%B3dulo-_--MongoDB)
 
 [Chat](http://be-mean.rocket.chat/channel/mongodb)
 
-[Artigos](https://github.com/Webschool-io/be-mean-instagram-artigos)
+[Articles](https://github.com/Webschool-io/be-mean-instagram-artigos)
 
 [mongo-hacker](https://github.com/TylerBrock/mongo-hacker)
 
@@ -37,34 +36,33 @@ O **MongoDb** é um banco e dados NoSQL open-source e orientado a documentos JSO
 
 [Wiki](https://github.com/Webschool-io/be-mean-instagram/wiki/Exerc%C3%ADcios)
 
-* [Exercício 01](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-01-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-01-resolved-gabrieltome.md) 
-* [Exercício 02](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-02-resolved.md#estrutura) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb-excercises/blob/master/class-02/class-02-resolved-gabrieltome.md)
-* Exercício 03
-* Exercício 04
+* [Exercise 01](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-01-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-01-resolved-gabrieltome.md) 
+* [Exercise 02](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-02-resolved.md#estrutura) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb-excercises/blob/master/class-02/class-02-resolved-gabrieltome.md)
+* Exercise 03
+* Exercise 04
 
 ***
 
 ##Workshop![Mongo Icon](https://camo.githubusercontent.com/b543a486d75c07ba1660c64851a2fc7b94113774/687474703a2f2f7777772e6178616e747765622e636f6d2f696d616765732f69636f6e732f6d6f6e676f2e706e67)
 
 
-###Aula 01
+###Class 01
 
-Nessa primeira aula foi apresentado o **MongoDB**.
+In this first class the was showed the MongoDB and some important features.
 
-Starta o shell
+Starts the shell
 
 ```
 mongo
 ```
 
-Em outro terminal
-
+Other term
 
 ```
 mongod
 ```
 
-
+[traduzir]
 Levantar já usando a database.
 
 ```
@@ -86,29 +84,29 @@ mongoimport --db nome_do_database --collection nome_da_colecao --drop --file min
 
 ***
 
-###Aula 02
+###Class 02
 
-Nessa aula foi mostrado alguns exemplos de CRUD.
+This class show some examples of CRUD.
 
-A variável *db* sempre aponta para a database.
+The *db var* always target 4 the database.
 
-
-**Listar as databases**
+**List the databases**
 
 ```
 show dbs
 ```
 
-**Seleciona banco**
+**Select the database**
 
-Especifica qual banco de dados a ser utilizado.
-Se não existir, ele cria o banco.
+Pick the database from the server.
+
+If don't exists, it's create the database
 
 ```
 use datababe
 ```
 
-**Lista as coleções do db**
+**List the Collections from database**
 
 ```
 show collections
@@ -123,6 +121,7 @@ show collections
 db.collection.insert()
 ```
 
+(traduzir)
 A primeira inserção é mais demorada, pois o **MongoDb** pré-aloca espaço na memória.
 
 
@@ -137,14 +136,15 @@ WriteResult({
 
 **Save**
 
-Insere salva.
+Insert and Save
 
-- Cria o objeto a ser salvo
+- Create the object to save
   	
   	```
   	var obj = {"name":'Name'}
   	```
-- Salva passando o objeto como parâmetro
+  	
+- Saves parsing the object by param	
 	
 	```
 	db.collection.save(obj)
@@ -152,20 +152,22 @@ Insere salva.
 
 **FIND**
 
-Retorna o ***CURSOR***
+Return the ***CURSOR***
 
 ```
 db.collection.find()
 ```
 
-Retorna o ***OBJETO***
+Return a ***OBJECT***
 
-Salva a busca
+Save the search
+
 
 ```
 var query = {name:'Name'}
 ```
- e depois
+
+and after
 
 ```
 var p = db.collection.findOne(query)
@@ -174,8 +176,102 @@ var p = db.collection.findOne(query)
 
 
 
-###Aula 03
+###Class 03
+
+####_id UUID
+
+##Retrieve
+
+####Query
+
+
+Find two params
+
+```
+db.collection.find({clausulas},{fields})
+```
+
+##OperadoresAritméticos
+
+####< is $lt - less than
+
+```
+db.collection.find({ "field" : { $lt: value } } );
+```
+Retorna objetos com valores menores que *value*.
+
+
+####<= is $lte - less than or equal
+
+
+```
+db.collection.find({ "field" : { $lte: value } } );
+```
+Retorna objetos com valores maiores ou igual a *value*.
+
+
+
+####> is $gt - greater than
+
+
+```
+db.collection.find({ "field" : { $gt: value } } );
+```
+Retorna objetos com valores maiores que *value*.
+
+
+####>= is $gte - greater than or equal
+
+```
+db.collection.find({ "field" : { $gte: value } } );
+```
+Retorna objetos com valores maiores ou igual a *value*.
+
+
+###Operadores Lógicos
+
+
+####$or
+
+Recebe dois arrays
+
+```
+var query = { $or : [{a:1},{b:2}]}
+db.collection.find(query)
+```
+
+####$nor
+Negação do *$or*
+
+```
+var query = { $or : [{a:1},{b:2}]}
+db.collection.find(query)
+```
+
+####$and
+
+```
+var query = { $or : [{a:1},{b:2}]}
+db.collection.find(query)
+```
+
+####Operador existêncial
+
+(Melhorar)
+
+Search the objects that have field
+
+```
+db.collection.find({field: {$exists:true}})
+```
+Return the object if field exists
+
+
+
 ###Aula 04
+
+
+####Operador de Array
 
 
 
