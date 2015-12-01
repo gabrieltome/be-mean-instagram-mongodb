@@ -173,14 +173,14 @@ and after
 var p = db.collection.findOne(query)
 ```
 
-
+---
 
 
 ###Class 03
 
 ####_id UUID
 
-##Retrieve
+###Retrieve
 
 ####Query
 
@@ -191,7 +191,7 @@ Find two params
 db.collection.find({clausulas},{fields})
 ```
 
-##OperadoresAritméticos
+###OperadoresAritméticos
 
 ####< is $lt - less than
 
@@ -267,14 +267,64 @@ db.collection.find({field: {$exists:true}})
 Return the object if field exists
 
 
+---
 
-###Aula 04
-
-
-####Operador de Array
+###Class 04
 
 
+####UPDATE update()
+
+The function *update* takes three 03 parameters
+
+- _query_
+- _modification_
+- _options_
+
+###Operadores de Modificação
+
+####$set
+
+The _$set_ operator modifies a value, if doesn't exists, it's created.
+
+#####Sintaxe
+
+```
+{ $set: { field: value } }
+```
+
+######Example
+
+```
+db.pokemons.update({name: 'Pikachu'}, {$set: {attack: 100}})
+```
+
+######Other example with "_id" in *query*
 
 
+```
+var mod = {$set: {name:'Brutal', attack:10000, defense:10000,height:10,description:'Pokemon de teste'}}
+
+var query = {"_id": ObjectId("565d08724a4eb81c28471da7")}
+
+db.pokemons.update(query, mod)
+```
+
+####$unset
+
+Excludes fields JSON document.
+
+```
+
+```
+
+####$inc
+
+####$push
+
+####$pushAll
+
+####$pull
+
+####$pullAll
 
 
