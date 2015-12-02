@@ -56,7 +56,7 @@ Starts the shell
 mongo
 ```
 
-Other term
+In other terminal window
 
 ```
 mongod
@@ -115,14 +115,16 @@ show collections
 
 ####CRUD
 
-**Insert**
+###**Insert/CREATE**
+
+#####Syntax
 
 ```
 db.collection.insert()
 ```
 
 (traduzir)
-A primeira inserção é mais demorada, pois o **MongoDb** pré-aloca espaço na memória.
+The first insert is the slower because **MongoDb** pre allocates memory space.
 
 
 ```                 
@@ -134,9 +136,9 @@ WriteResult({
 })
 ```
 
-**Save**
+###**SAVE**
 
-Insert and Save
+####Insert and Save
 
 - Create the object to save
   	
@@ -150,7 +152,7 @@ Insert and Save
 	db.collection.save(obj)
 	```
 
-**FIND**
+####**Find**
 
 Return the ***CURSOR***
 
@@ -180,7 +182,13 @@ var p = db.collection.findOne(query)
 
 ####_id UUID
 
-###Retrieve
+Example of UUID
+
+```
+ ObjectId("565d08724a4eb81c28471da7")
+```
+
+###**Retrieve**
 
 ####Query
 
@@ -255,12 +263,12 @@ var query = { $or : [{a:1},{b:2}]}
 db.collection.find(query)
 ```
 
-####Operador existêncial
+####Existential Operator
 
-(Melhorar)
 
-Search the objects that have field
+Search the objects **that have** field
 
+#####Syntax
 ```
 db.collection.find({field: {$exists:true}})
 ```
@@ -272,21 +280,30 @@ Return the object if field exists
 ###Class 04
 
 
-####UPDATE update()
+###UPDATE
 
-The function *update* takes three 03 parameters
+
+The function **update()** takes three parameters
 
 - _query_
 - _modification_
 - _options_
 
-###Operadores de Modificação
+#####Syntax
+
+
+```
+db.collection.update(query, mod, options)
+```
+
+
+###Mod Operators
 
 ####$set
 
-The _$set_ operator modifies a value, if doesn't exists, it's created.
+The __$set__ operator modifies a value, if doesn't exists, it's created.
 
-#####Sintaxe
+#####Syntax
 
 ```
 { $set: { field: value } }
@@ -311,20 +328,153 @@ db.pokemons.update(query, mod)
 
 ####$unset
 
-Excludes fields JSON document.
+**Excludes** fields JSON document.
+
+#####Syntax
 
 ```
+var mod = {$unset: {field: 1}}
+db.collection.update(query, mod)
+```
 
+######Example
+
+```
+var mod = {$unset: {height:1}}
+db,pokemons.update(query, mod)
 ```
 
 ####$inc
 
+The **$inc** operator increases a desired amount in the field.
+If field don't exists, the field is created with the value inside.
+
+#####Syntax
+
+```
+var mod = {$inc: { field: 1}}
+db.collections.update(query, mod)
+```
+
+#####Example
+
+**+10**
+
+```
+var mod = {$inc: {attack: 10}}
+db.pokemons.update)(query, mod)
+```
+
+#####To **DECREASE**
+
+**-10**
+
+
+```
+var mod = {$inc: {attack: -10}}
+db.pokemons.update)(query, mod)
+```
+
+###**ARRAY** Operators
+
+
 ####$push
+
+The **$push** operator puts a value in the array's field.
+
+If the field doesn't exists, a new array field is created with the value inside.
+
+If the field exists but don't is an array, returns a error.
+
+#####Syntax
+
+```
+{ $push: { field : value }}
+```
+
+#####Example
+
+```
+var mod = {$push: {moves: 'Choque do Trovão'}}
+db.pokemons.update(query, mod)
+```
 
 ####$pushAll
 
+The **$pushAll** operator puts __*each*__ value of the **_[Array_of_values]_** in the array's field.
+
+If the field doesn't exists, a new array field is created with the value inside.
+
+If the field exists but don't is an array, returns a error.
+
+#####Syntax
+
+```
+{ $pushAll: { field : [Array_of_values] }}
+```
+
+#####Example
+
+```
+var attacks = ['Choque do Trovão','Investida','Ataque Rápido']
+var mod = {$pushAll: {moves, attacks}}
+db.pokemons.update(query, mod)
+```
+
 ####$pull
+
+The $pull operator removes the value of the array field.
+
+If doesn't exists, nothing is done.
+
+If the field exists but don't is an array returns a error.
+
+#####Syntax
+
+```
+{$pull : { field : value}}
+```
+
+#####Example
+
+
+```
+var mod = {$pull: {moves: 'Ataque Rápido'}}
+db.pokemons.update(query, mod)
+```
 
 ####$pullAll
 
+The **$pullAll** operator **REMOVES** **EACH** value of the **_[Array_of_values]_** in the array's field.
+
+If doesn't exists, nothing is done.
+
+If the field exists but don't is an array, returns a error.
+
+#####Syntax
+
+```
+{ $pullAll: { field : [Array_of_values] }}
+```
+
+#####Example
+
+```
+var attacks = ['Investida','Ataque Rápido']
+var mod = {$pullAll: {moves, attacks}}
+db.pokemons.update(query, mod)
+```
+
+### Options do update()
+
+####update() - options
+####update() - options - upsert
+####update() - options - upsert - $setOnInsert
+####update() - options - multi
+####update() - options - writeConcern
+
+####find() - Operador de Array - $in
+####find() - Operador de Array - $nin
+####find() - Operador de Array - $all
+####find() - Operador de Negação - $not
 
