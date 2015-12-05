@@ -564,14 +564,131 @@ WriteResult({
 })
 ```
 
-
-
 ####update() - options - writeConcern
 
+**WriteConcern** describes the assurance of that MongoDB gives success relate of the write operation.
 
+
+###More of Array Operators
 
 ####find() - Operador de Array - $in
-####find() - Operador de Array - $nin
-####find() - Operador de Array - $all
-####find() - Operador de Negação - $not
 
+ **$in** returns the documents that has some value into [Array Of Values].
+
+#####Syntax
+
+```
+{field: {$in: [Array_of_values]}}
+db.collection.find(query)
+```
+
+#####Example
+
+```
+var query = {moves: {$in: [/choque do trovão/i]}}
+db.pokemons.find(query)
+```
+
+####find() - Operador de Array - $nin
+
+Not in.
+
+Reverse of the $in.
+
+The $nin returns documents if no values are found.
+
+
+#####Syntax
+
+```
+{field: {$nin: [Array_of_values]}}
+db.collection.find(query)
+```
+
+#####Example
+
+```
+var query = {moves: {$nin: [/choque do trovão/i]}}
+db.pokemons.find(query)
+```
+
+
+####find() - Operador de Array - $all
+
+Like an **AND**.
+
+Return documents if ALL the values are found.
+
+#####Syntax
+
+```
+{field: {$all: [Array_of_values]}}
+db.collection.find(query)
+```
+
+#####Example
+
+```
+var query = {moves: {$all: ['investida','hidro bomba']}}
+db.pokemons.find(query)
+```
+
+###Negation Operators
+
+
+####find() - Operador de Negação - $ne
+
+**NOT EQUAL**
+
+#####Syntax
+
+```
+{field: {$ne: value}}
+
+```
+
+#####Example
+
+```
+var query = {type: {$ne: 'Water'}}
+db.pokemons.find(query)
+```
+
+**DON'T REGEX!!!!**
+
+
+####find() - Operador de Negação - $ne
+
+**REGEX OK!!**
+
+#####Syntax
+
+```
+{field: {$not: value}}
+db.collection.find(query)
+```
+
+#####Example
+
+```
+var query = {name: {$not: /pikachu/i}}
+db.pokemons.find(query)
+```
+
+###DELETE
+
+###remove()
+
+#####Syntax
+
+```
+var query = {field: value}
+db.collection.remove(query)
+```
+
+#####Example
+
+```
+var query = {name: /Magikarp/i}
+db.pokemons.remove(query)
+```
