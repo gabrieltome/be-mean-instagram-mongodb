@@ -24,6 +24,8 @@ O **MongoDb** é um banco de dados NoSQL open-source e orientado a documentos JS
 
 [Be Mean - Official Repository](https://github.com/Webschool-io/be-mean-instagram)
 
+__[Official Manual](https://docs.mongodb.org/manual/)__
+
 [Classes Slides](https://github.com/Webschool-io/be-mean-instagram/wiki/M%C3%B3dulo-_--MongoDB)
 
 [Chat](http://be-mean.rocket.chat/channel/mongodb)
@@ -277,7 +279,7 @@ Return the object if field exists
 
 ---
 
-###Class 04
+###Class 04 - pt 1
 
 
 ###UPDATE
@@ -468,10 +470,105 @@ db.pokemons.update(query, mod)
 ### Options do update()
 
 ####update() - options
+
+The **options** object will be used to setup some different values for the standard update.
+
+#####Syntax
+
+```
+{
+	upsert: boolean,  <-
+	multi: boolean,
+	writeConcern: document
+}
+```
+
 ####update() - options - upsert
+
+If the document is not found by the query, it inserts the object that is being sent by the modifier. 
+
+The standard is FALSE.
+
+#####Syntax
+
+```
+var query = {field: /sometext/i}
+var mod = {$set: {active: true}}
+var options = {upsert: true}
+db.collectins.update(query, mod, options)
+```
+
+#####Example
+
+```
+var query = {name: /Pikachu/i}
+var mod = {$set: {active:true}}
+var options = {upsert: true}
+db.pokemons.update(query, mod, options)
+```
+
 ####update() - options - upsert - $setOnInsert
+
+
+The **$setOnInsert** set the values will be that added only if happen a **upset**.
+
+#####Syntax with example
+
+
+```
+var query = {name: /NãoExisteMon/i}
+var mod = { 
+	$set: {active:true},
+	$setOnInsert{ 
+	name:"NaoExisteMon",
+	attack:null,
+	defense:null,
+	height:null,
+	description:"Sem maiores infos"}
+	}
+var options = {upsert: true}
+db.pokemons.update(query, mod, options)
+
+```
+
 ####update() - options - multi
+
+MongoDb allows you to change only one document at a time.
+
+If we want to change more than one document, we must set the parameter like **TRUE**.
+
+#####Syntax
+
+```
+var query = {}
+var mod = {$set: {field:value}}
+var options = {multi:true}
+db.collection.update(query, mod, options)
+```
+
+#####Example
+
+```
+var query = {}
+var mod = {$set: {active:false}}
+var options = {multi:true}
+db.pokemons.update(query, mod, options)
+
+// 8 docs changed
+
+Updated 8 existing record(s) in 7ms
+WriteResult({
+  "nMatched": 8,
+  "nUpserted": 0,
+  "nModified": 8
+})
+```
+
+
+
 ####update() - options - writeConcern
+
+
 
 ####find() - Operador de Array - $in
 ####find() - Operador de Array - $nin
