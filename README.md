@@ -13,7 +13,7 @@ Workshop de [**MEAN**](http://mean.io/) ([MongoDb](https://www.mongodb.org/), [E
 
 ##MongoDb![Mongo Icon](https://camo.githubusercontent.com/b543a486d75c07ba1660c64851a2fc7b94113774/687474703a2f2f7777772e6178616e747765622e636f6d2f696d616765732f69636f6e732f6d6f6e676f2e706e67)
 
-[traduzir] 
+[traduzir][melhorar] 
 O **MongoDb** é um banco de dados NoSQL open-source e orientado a documentos JSON.
 
 
@@ -36,12 +36,14 @@ __[Official Manual](https://docs.mongodb.org/manual/)__
 
 #####Exercícios
 
+[FIX LINKS!!!]
+
 [Wiki](https://github.com/Webschool-io/be-mean-instagram/wiki/Exerc%C3%ADcios)
 
 * [Exercise 01](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-01-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-01-resolved-gabrieltome.md) 
 * [Exercise 02](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-02-resolved.md#estrutura) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb-excercises/blob/master/class-02/class-02-resolved-gabrieltome.md)
 * [Exercise 03](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-03-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-03-resolved-gabrieltome.md)
-* Exercise 04
+* [Exercise 04](https://github.com/Webschool-io/be-mean-instagram/blob/master/Apostila/classes/mongodb/class-04-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-04-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
 
 ***
 
@@ -254,14 +256,14 @@ db.collection.find(query)
 Negação do *$or*
 
 ```
-var query = { $or : [{a:1},{b:2}]}
+var query = { $nor : [{a:1},{b:2}]}
 db.collection.find(query)
 ```
 
 ####$and
 
 ```
-var query = { $or : [{a:1},{b:2}]}
+var query = { $and : [{a:1},{b:2}]}
 db.collection.find(query)
 ```
 
@@ -692,3 +694,4 @@ db.collection.remove(query)
 var query = {name: /Magikarp/i}
 db.pokemons.remove(query)
 ```
+
