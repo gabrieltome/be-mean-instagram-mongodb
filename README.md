@@ -695,3 +695,137 @@ var query = {name: /Magikarp/i}
 db.pokemons.remove(query)
 ```
 
+##Class 05
+
+###find().length()
+
+#####Syntax
+
+```
+db.collection.find().length()
+```
+
+#####Example
+
+```
+db.pokemons.find().length()
+610
+```
+
+###count()
+
+#####Syntax
+
+```
+db.collection.count()
+```
+#####Example
+
+```
+db.pokemons.count()
+610
+```
+
+###distinct()
+
+#####Syntax
+
+```
+db.collection.distinct('example')
+```
+
+#####Example
+
+```
+db.pokemons.distinct('types')
+
+[
+  "normal",
+  "fire",
+  "water",
+  "bug",
+  "flying",
+  "poison",
+  "electric",
+  "steel",
+  "ice",
+  "ghost",
+  "fighting",
+  "psychic",
+  "grass",
+  "ground",
+  "fairy",
+  "rock",
+  "dark",
+  "dragon"
+]
+
+```
+####Others skills
+
+#####.length
+
+```
+db.collection.distinct('types').length
+
+18
+```
+
+
+#####.sort()
+
+```
+db.pokemons.distinct('types').sort()
+
+[
+  "bug",
+  "dark",
+  "dragon",
+  "electric",
+  "fairy",
+  "fighting",
+  "fire",
+  "flying",
+  "ghost",
+  "grass",
+  "ground",
+  "ice",
+  "normal",
+  "poison",
+  "psychic",
+  "rock",
+  "steel",
+  "water"
+]
+```
+
+
+#####.sort().reverse
+
+```
+db.pokemons.distinct('types').sort().reverse()
+
+[
+  "water",
+  "steel",
+  "rock",
+  "psychic",
+  "poison",
+  "normal",
+  "ice",
+  "ground",
+  "grass",
+  "ghost",
+  "flying",
+  "fire",
+  "fighting",
+  "fairy",
+  "electric",
+  "dragon",
+  "dark",
+  "bug"
+]
+```
+
+####limit().skip() 
+
