@@ -827,5 +827,229 @@ db.pokemons.distinct('types').sort().reverse()
 ]
 ```
 
-####limit().skip() 
+####limit()
+
+
+Defines the number of docs you want to display.
+
+#####Syntax
+
+```
+db.collection.find().limit(NUMBER)
+```
+
+
+#####Example
+
+```
+db.pokemons.find({}, {name: 1, _id: 0}).limit(10)
+```
+
+####limit().skip()
+
+**PAGINATION!!!**
+
+Defines the number of docs you want skip before display.
+
+#####Syntax
+
+```
+db.collection.find().limit(NUMBER).skip(NUMBER)
+```
+
+
+#####Examples
+
+```
+db.pokemons.find({}, {name: 1, _id: 0}).limit(10).skip(10)
+```
+**Pagination**
+
+```
+db.pokemons.find({}, {name: 1, _id: 0}).limit(X).skip(X) * Y)
+```
+or
+
+```
+db.pokemons.find({}, {name: 1, _id: 0}).limit(10).skip(10) * 2)
+```
+
+
+####group()
+
+#####example
+
+```
+db.pokemons.group({
+ initial: { 
+ 	total: 0
+ 	},
+ 	reduce: function(curr, result) {
+ 		curr.types.forEach(function(type) {
+ 			if (result[type]){
+ 				result[type]++;
+ 			}else {
+ 				result[type] = 1;
+ 			}
+ 		result.total++;
+ 		});
+ 	}
+ });
+
+
+[{
+    "total": 915,
+    "normal": 78,
+    "fire": 47,
+    "water": 105,
+    "bug": 61,
+    "flying": 77,
+    "poison": 54,
+    "steel": 37,
+    "electric": 40,
+    "ice": 24,
+    "ghost": 34,
+    "fighting": 38,
+    "psychic": 62,
+    "grass": 75,
+    "ground": 51,
+    "fairy": 28,
+    "rock": 46,
+    "dark": 38,
+    "dragon": 20
+ }]
+```
+#####Example with cond
+
+```
+
+db.pokemons.group({
+ initial: { 
+ 	total: 0},
+    cond: { defense: {$gte: 40}},  // add cond 
+ 	reduce: function(curr, result) {
+ 		curr.types.forEach(function(type) {
+ 			if (result[type]){
+ 				result[type]++;
+ 			}else {
+ 				result[type] = 1;
+ 			}
+ 		result.total++;
+ 		});
+ 	}
+ });
+
+[
+  {
+    "total": 722,
+    "fire": 36,
+    "water": 85,
+    "bug": 48,
+    "flying": 58,
+    "poison": 39,
+    "normal": 51,
+    "steel": 37,
+    "electric": 30,
+    "ice": 20,
+    "fighting": 33,
+    "grass": 60,
+    "ground": 42,
+    "fairy": 18,
+    "psychic": 48,
+    "rock": 44,
+    "dark": 27,
+    "dragon": 18,
+    "ghost": 28
+  }
+]
+
+```
+
+######more skills
+
+We can use the same condition to **count**
+
+```
+db.pokemons.count({ defense: { $gte: 100}})
+
+109
+```
+
+And we can add more conditions
+
+```
+db.pokemons.count({ defense: { $gte: 100}, types: 'ghost'})
+
+11
+```
+
+```
+db.pokemons.group({
+ initial: { 
+ 	total:0, 
+ 	defense:0, 
+ 	attack:0
+ },
+ reduce: function(current, result) {
+ 	result.total++;
+ 	result.defense += current.defense;
+ 	result.attack += current.attack;
+ },
+ finalize: function(result) {
+ 	result.defense_avg = result.defense / result.total;
+ 	result.attack_avg = result.attack / result.total;
+ }
+});
+
+[
+  {
+    "total": 610,
+    "defense": 43623,
+    "attack": 45445,
+    "defense_avg": 71.51311475409837,  // calcula a média das defesas
+    "attack_avg": 74.5     // calcula a média dos ataques
+  }
+]
+
+
+```
+
+Add conditional
+[traduzir e melhorar]
+retornar a média dos ataques e defesas de todo pokemons do tipo fogo.
+
+```
+db.pokemons.group({
+ cond: { types: 'fire' // add condition
+ },
+ initial: { 
+ 	total:0, 
+ 	defense:0, 
+ 	attack:0
+ },
+ reduce: function(current, result) {
+ 	result.total++;
+ 	result.defense += current.defense;
+ 	result.attack += current.attack;
+ },
+ finalize: function(result) {
+ 	result.defense_avg = result.defense / result.total;
+ 	result.attack_avg = result.attack / result.total;
+ }
+});
+
+[
+  {
+    "total": 47,
+    "defense": 3088,
+    "attack": 3748,
+    "defense_avg": 65.70212765957447,
+    "attack_avg": 79.74468085106383
+  }
+]
+
+
+```
+
+####agregate()
 
