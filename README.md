@@ -1051,5 +1051,18 @@ db.pokemons.group({
 
 ```
 
-####agregate()
+####aggregate()
+
+Aggregations operations process data records and return computed results. 
+
+Aggregation operations group values from multiple documents together, and can perform a variety of operations on the grouped data to return a single result. In sql count(*) and with group by is an equivalent of mongodb aggregation.
+
+#####Syntax
+
+```
+db.collection.aggregate(AGGREGATE_OPERATION)
+
+```
+
+
 
