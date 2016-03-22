@@ -1064,5 +1064,58 @@ db.collection.aggregate(AGGREGATE_OPERATION)
 
 ```
 
-teste
+#####Example
+
+```
+db.pokemons.aggregate({
+  $group: {
+    _id: {},
+    defense_avg: { $avg: '$defense'},
+    attack_avg: { $avg: '$attack'}
+  }
+});
+
+```
+
+#####other example
+
+```
+db.pokemons.aggregate({
+  $group: {
+    _id: {},
+    defense_avg: { $avg: '$defense'}, // media
+    attack_avg: { $avg: '$attack'}, // media
+    
+    defense: { $sum: '$defense'}, // soma 
+    attack: { $sum: '$attack'}, // soma 
+    total: { $sum: 1} // total
+  }
+});
+```
+
+#####Example with cond
+
+```
+db.pokemons.aggregate([
+  { $match: { types: 'fire' } },
+  {
+  $group: {
+    _id: {},
+    defense_avg: { $avg: '$defense'}, // media
+    attack_avg: { $avg: '$attack'}, // media
+    
+    defense: { $sum: '$defense'}, // soma 
+    attack: { $sum: '$attack'}, // soma 
+    total: { $sum: 1} // total
+  }
+}
+]);
+
+```
+
+#####other example
+
+```
+
+```
 
