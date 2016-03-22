@@ -1112,28 +1112,3 @@ db.pokemons.aggregate([
 ]);
 
 ```
-
-#####other example with finalize
-
-```
-db.pokemons.group({
- cond: { types: 'normal' // add condition
- },
- initial: {
-    total:0,
-    defense:0,
-    attack:0
- },
- reduce: function(current, result) {
-    result.total++;
-    result.defense += current.defense;
-    result.attack += current.attack;
- },
- finalize: function(result) {
-    result.defense_avg = result.defense / result.total;
-    result.attack_avg = result.attack / result.total;
- }
-});
-
-```
-
