@@ -4,8 +4,7 @@
 
 ***
 
-###Sobre
-[Link Oficial](http://dagora.net/be-mean/)
+###About
 
 Workshop de [**MEAN**](http://mean.io/) ([MongoDb](https://www.mongodb.org/), [Express](http://expressjs.com/), [Angular](https://angularjs.org/) e [NodeJs](https://nodejs.org/en/) via CROWDFUNDING. Criação de um sistema Web Full Stack igual o Instagram utilizando somente **Javascript**.
 
@@ -28,8 +27,6 @@ __[Official Manual](https://docs.mongodb.org/manual/)__
 
 [Classes Slides](https://github.com/Webschool-io/be-mean-instagram/wiki/M%C3%B3dulo-_--MongoDB)
 
-[Chat](http://be-mean.rocket.chat/channel/mongodb)
-
 [Articles](https://github.com/Webschool-io/be-mean-instagram-artigos)
 
 [mongo-hacker](https://github.com/TylerBrock/mongo-hacker)
@@ -46,6 +43,20 @@ __[Official Manual](https://docs.mongodb.org/manual/)__
 * [Exercise 04](https://github.com/Webschool-io/be-mean-instagram/blob/master/Apostila/classes/mongodb/class-04-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-04-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
 
 ***
+
+####Update MongoDB from 2.6 to 3.0 on Mac
+
+```
+$ brew updae
+Already up-to-date  
+$ brew install mongodb
+Error: mongodb-2.6.8 already installed  
+To install this version, first `brew unlink mongodb`  
+$ brew upgrade mongodb
+==> Updating 1 outdated package, with result:
+mongodb 3.0.4  
+
+```
 
 ##Workshop![Mongo Icon](https://camo.githubusercontent.com/b543a486d75c07ba1660c64851a2fc7b94113774/687474703a2f2f7777772e6178616e747765622e636f6d2f696d616765732f69636f6e732f6d6f6e676f2e706e67)
 
@@ -1112,3 +1123,81 @@ db.pokemons.aggregate([
 ]);
 
 ```
+
+
+## Class 06
+
+[Traduzir]
+
+### Relacionamentos
+
+Não existe JOINS!!!!
+
+
+```
+var pokemons = [
+  {"_id": ObjectId("564b1dad25337263280d047a")},
+  {"_id": ObjectId("564b1dad25337263280d047b")},
+  {"_id": ObjectId("564b1dad25337263280d047c")
+];
+
+// criando um inventário...
+
+var json = {
+  nome: "Meus pokemons", // nome do inventário
+  pokemons: pokemons // campo array que recebe os objetos
+}
+
+// inserre passando o json como parâmetro
+
+db.invt.insert(json);
+
+```
+
+Depois de inserido, criamos a busca para pegar cada um.
+
+```
+// cria um array vazio para receber
+var pokemons = [];
+// cria uma função para preencher o array pokemons
+var getPokemon = function(id){
+  pokemons.push(db.pokemons.findOne(id)) // faz o push(preenche) no array
+}
+
+var invt = db.invt.findOne();
+
+invt.pokemons.forEach(getPokemon); // preenche pokemons com cada(usando o forEach) pokemon passando a função 'getPokemon' no forEach
+
+```
+
+####DBRef
+
+O DBRef é uma convenção para representar um documento relacionado, isso inclui:
+
+*  $ref: nome da collection a ser referenciada;
+
+*  $id: o ObjectId do documento referenciado;
+
+*  $db: a database onde a collection referenciada se encontra.
+
+
+
+###Explain
+
+
+Mostra o que o banco está fazendo.
+
+
+
+
+
+
+
+
+
+
+
+
+.
+
+
