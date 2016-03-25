@@ -44,7 +44,7 @@ __[Official Manual](https://docs.mongodb.org/manual/)__
 
 ***
 
-####Update MongoDB from 2.6 to 3.0 on Mac
+####Update MongoDB from 2.6 to 3.0 on Mac OS X
 
 ```
 $ brew updae
@@ -56,6 +56,20 @@ $ brew upgrade mongodb
 ==> Updating 1 outdated package, with result:
 mongodb 3.0.4  
 
+```
+####Uninstall Old Version MongoDB on Mac OS X
+```
+* See if mongo is in the launch/startup list
+launchctl list | grep mongo
+
+* Remove mongodb from the launch/startup
+launchctl remove homebrew.mxcl.mongodb
+
+* Kill the mongod process just in case it's running
+pkill -f mongod
+
+* Now you can safely remove mongodb using Homebrew
+brew uninstall mongodb
 ```
 
 ##Workshop![Mongo Icon](https://camo.githubusercontent.com/b543a486d75c07ba1660c64851a2fc7b94113774/687474703a2f2f7777772e6178616e747765622e636f6d2f696d616765732f69636f6e732f6d6f6e676f2e706e67)
