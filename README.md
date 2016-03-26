@@ -1186,7 +1186,7 @@ invt.pokemons.forEach(getPokemon); // preenche pokemons com cada(usando o forEac
 
 ####DBRef
 
-O DBRef é uma convenção para representar um documento relacionado, isso inclui:
+DBRef é uma convenção para representar um documento relacionado, isso inclui:
 
 *  $ref: nome da collection a ser referenciada;
 
@@ -1198,8 +1198,63 @@ O DBRef é uma convenção para representar um documento relacionado, isso inclu
 
 ###Explain
 
+Show what happened on database.
 
-Mostra o que o banco está fazendo.
+Example of explain
+
+```
+db.restaurantes.find({"name": "Morris Park Bake Shop"}).explain('executionStats')
+```
+
+###Index
+
+Return something special more fast.
+
+Creating a index to 'name':
+
+```
+db.restaurantes.createIndex({name:1})
+{
+  "createdCollectionAutomatically": false,
+  "numIndexesBefore": 1,
+  "numIndexesAfter": 2,
+  "ok": 1
+}
+
+// result
+
+db.restaurantes.getIndexes()
+[
+  {
+    "v": 1,
+    "key": {
+      "_id": 1
+    },
+    "name": "_id_",
+    "ns": "be-mean.restaurantes"
+  },
+  {
+    "v": 1,
+    "key": {
+      "name": 1
+    },
+    "name": "name_1",
+    "ns": "be-mean.restaurantes"
+  }
+]
+
+
+```
+
+Delete index
+
+```
+db.restaurantes.dropIndex({name:1})
+{
+  "nIndexesWas": 2,
+  "ok": 1
+}
+```
 
 
 
@@ -1212,6 +1267,16 @@ Mostra o que o banco está fazendo.
 
 
 
-.
+
+
+
+
+
+
+
+
+
+
+
 
 
