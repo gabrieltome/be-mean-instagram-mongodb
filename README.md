@@ -1256,7 +1256,19 @@ db.restaurantes.dropIndex({name:1})
 }
 ```
 
+###GridFS
 
+É o sistema de arquivos do MongoDb o qual irá armazenar os arquivos binários diretamente no banco.
+
+Para armazenar algo maior do que 16M.
+
+Não joga o arquivo para a memória RAM.
+
+Portanto pode ser uma boa estratégia usar o MongoDB para armazenar documentos grandes.
+
+Se o sistema de arquivos limita o número de arquivos em um diretório, pode-se usar o GridFS para armazenar quanos arquivos quiser.
+
+Quando quiser acessar informações de partes de arquivos grandes sem precisar carregar todos os arquivos na memória, o GridFS busca seções do arquivo sem precisar ler todo o arquivo.
 
 
 
