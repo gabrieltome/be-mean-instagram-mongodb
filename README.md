@@ -1264,12 +1264,67 @@ Para armazenar algo maior do que 16M.
 
 Não joga o arquivo para a memória RAM.
 
-Portanto pode ser uma boa estratégia usar o MongoDB para armazenar documentos grandes.
+Portanto, pode ser uma boa estratégia usar o MongoDB para armazenar documentos grandes.
 
-Se o sistema de arquivos limita o número de arquivos em um diretório, pode-se usar o GridFS para armazenar quanos arquivos quiser.
+Se o sistema de arquivos limita o número de arquivos em um diretório, pode-se usar o GridFS para armazenar quantos arquivos quiser.
 
 Quando quiser acessar informações de partes de arquivos grandes sem precisar carregar todos os arquivos na memória, o GridFS busca seções do arquivo sem precisar ler todo o arquivo.
 
+
+Como usar:
+(é BINÁRIO! Devemos rodar fora do terminal do Mongo!)
+
+```
+mongofiles -d be-mean-files -h 127.0.0.1 put File.mp4
+```
+
+Exemplo:
+
+```
+mongofiles -d be-mean-files -h 127.0.0.1 put Os_Raios_do_Pikachu.mp4
+2016-03-28T18:00:59.062-0300	connected to: 127.0.0.1
+added file: Os_Raios_do_Pikachu.mp4
+```
+
+No terminal do Mongo:
+
+```
+show collections
+fs.chunks      → 21.124MB / 26.559MB
+fs.files       →  0.000MB /  0.008MB
+system.indexes →  0.000MB /  0.008MB
+
+```
+
+Cada *chunk* é um documento de 255KB de dados, que formam uma collection *fs.chunks* (arquivo binário)
+
+Estrutura de um *chunk*:
+
+```
+{
+	"_id": <ObjectId>,
+	"files_id": <ObjectId>,
+	"n": <num>,
+	"data": <binary>
+}
+```
+
+Estrutura do *fs.files*:
+
+```
+{
+	"_id": <ObjectId>,
+	"length": <num>,
+	"chunkSize": <num>,
+	"uploadDate": <timestamp>,
+	"md5": <hash>,
+	"filename": <string>
+}
+```
+
+###Réplica
+
+Espelhamento de dados.
 
 
 
