@@ -1326,10 +1326,41 @@ Estrutura do *fs.files*:
 
 Espelhamento de dados.
 
+Passos para criar um cluster:
+
+1. Criar um diretório em **/data** para cada **réplica**;
+2. Levantar cada **Réplica** com **--replSet nome_ReplicaSet** em uma porta diferente;
+3. Criar um **JSON** de configuração;
+4. Conectar no **PRIMARY** e executar **rs.initiate(JSON_de_config)**;
+5. Adicionar as outras **Réplicas** caso não tenha as colocado no JSON de configuração;
+6. **Done!**
+
+Um **ReplicaSet** é um conjunto de réplicas.
+
+
+###Árbitro
+
+**Voto de Minerva**
+
+Usado para quando a réplica primária cair, o árbitro votará desempatando para qual réplica secundária se tornará primária.
+
+
+###Sharding
+
+Crescimento de forma vertical.
+Adicionando servidores horizontalmente distribuindo a carga de processamento entre eles.
+
+Arquitetura de um cluster MongoDb:
+* Shard -> Instância do mongoDB que guarda uma parte da collection
+* Config Servers -> Instância do MongoDB que guarda os metadados
+* Router -> uma instância mongos que faz o roteamento das escritas e leituras para os shards.
+
+A aplicação não acessa os shards diretamente.
 
 
 
-
+===
+===
 
 
 
