@@ -43,6 +43,8 @@ __[Official Manual](https://docs.mongodb.org/manual/)__
 * [Exercise 04](https://github.com/Webschool-io/be-mean-instagram-mongodb-exercises/blob/master/class-04/class-04-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
 * [Exercise 05](https://github.com/Webschool-io/be-mean-instagram-mongodb-exercises/blob/master/class-05/class-05-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
 * [Exercise 06]()
+
+
 ***
 
 ####Update MongoDB from 2.6 to 3.0 on Mac OS X
