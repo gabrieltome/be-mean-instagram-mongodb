@@ -37,11 +37,12 @@ __[Official Manual](https://docs.mongodb.org/manual/)__
 
 [Wiki](https://github.com/Webschool-io/be-mean-instagram/wiki/Exerc%C3%ADcios)
 
-* [Exercise 01](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-01-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-01-resolved-gabrieltome.md) 
-* [Exercise 02](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-02-resolved.md#estrutura) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb-excercises/blob/master/class-02/class-02-resolved-gabrieltome.md)
-* [Exercise 03](https://github.com/Webschool-io/be-mean-instagram/blob/master/apostila/classes/mongodb/class-03-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-03-resolved-gabrieltome.md)
-* [Exercise 04](https://github.com/Webschool-io/be-mean-instagram/blob/master/Apostila/classes/mongodb/class-04-resolved.md) - [Resolved](https://github.com/gabrieltome/be-mean-instagram-mongodb/blob/master/exercises/class-04-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
-
+* [Exercise 01](https://github.com/Webschool-io/be-mean-instagram-mongodb-exercises/blob/master/class-01/class-01-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
+* [Exercise 02](https://github.com/Webschool-io/be-mean-instagram-mongodb-exercises/blob/master/class-02/class-02-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
+* [Exercise 03](https://github.com/Webschool-io/be-mean-instagram-mongodb-exercises/blob/master/class-03/class-03-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
+* [Exercise 04](https://github.com/Webschool-io/be-mean-instagram-mongodb-exercises/blob/master/class-04/class-04-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
+* [Exercise 05](https://github.com/Webschool-io/be-mean-instagram-mongodb-exercises/blob/master/class-05/class-05-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
+* [Exercise 06]()
 ***
 
 ####Update MongoDB from 2.6 to 3.0 on Mac OS X
