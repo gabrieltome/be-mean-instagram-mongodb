@@ -42,7 +42,7 @@ __[Official Manual](https://docs.mongodb.org/manual/)__
 * [Exercise 03](https://github.com/Webschool-io/be-mean-instagram-mongodb-exercises/blob/master/class-03/class-03-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
 * [Exercise 04](https://github.com/Webschool-io/be-mean-instagram-mongodb-exercises/blob/master/class-04/class-04-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
 * [Exercise 05](https://github.com/Webschool-io/be-mean-instagram-mongodb-exercises/blob/master/class-05/class-05-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
-* [Exercise 06]()
+* [Exercise 06](https://github.com/Webschool-io/be-mean-instagram-mongodb-exercises/blob/master/class-06/class-06-resolved-gabrieltome-Gabriel-Tome-Lisboa.md)
 
 
 ***
